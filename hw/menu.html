@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Day Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #FDB913;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            background-color: #ffe084;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            width: 300px;
+            font-style: italic;
+        }
+
+        .username {
+            font-weight: bold;
+        }
+
+        .menu-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .pizza-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pizza-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .pizza-info h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ingredients {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .sold-out {
+            color: #999;
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            background-color: #FDB913;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: #e5a700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PIZZA DAY</div>
+        <input type="text" class="search-bar" placeholder="Search for the order #">
+        <div class="username">VLAD</div>
+    </header>
+
+    <div class="menu-container">
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Margherita Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Margherita</h2>
+                <p class="ingredients">Tomato, Mozzarella, Basil</p>
+                <p class="price">€12.00</p>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Capricciosa Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Capricciosa</h2>
+                <p class="ingredients">Tomato, Mozzarella, Ham, Mushrooms, Artichoke</p>
+                <p class="sold-out">SOLD OUT</p>
+            </div>
+        </div>
+
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Romana Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Romana</h2>
+                <p class="ingredients">Tomato, Mozzarella, Prosciutto</p>
+                <p class="price">€15.00</p>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Prosciutto e Rucola Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Prosciutto e Rucola</h2>
+                <p class="ingredients">Tomato, Mozzarella, Prosciutto, Arugula</p>
+                <p class="price">€16.00</p>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Diavola Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Diavola</h2>
+                <p class="ingredients">Tomato, Mozzarella, Spicy Salami, Chili Flakes</p>
+                <p class="price">€16.00</p>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+
+        <div class="pizza-item">
+            <img src="/placeholder.svg?height=100&width=100" alt="Vegetale Pizza" class="pizza-image">
+            <div class="pizza-info">
+                <h2>Vegetale</h2>
+                <p class="ingredients">Tomato, Mozzarella, Bell Peppers, Onions, Mushrooms</p>
+                <p class="price">€14.00</p>
+            </div>
+            <button class="add-to-cart">ADD TO CART</button>
+        </div>
+    </div>
+</body>
+</html>
