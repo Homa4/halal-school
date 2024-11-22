@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Header from './Header'
-import Button from './Button'
-import Input from './Input'
+// import Button from './Button'
+// import Input from './Input'
 import Form from './Form'
 import Menu from './Menu'
 import pizzas from '../logic/data'
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element:
       <div className="container">
         <Header>PIZZA DAY</Header>
-        <Form comp_input={<Input />} comp_button={<Button>Start Order</Button>}></Form>
+        <Form/>
       </div>,
   },
   {

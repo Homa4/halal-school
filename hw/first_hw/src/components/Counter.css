@@ -1,0 +1,40 @@
+.counterWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.counterWrapper div {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    background-color: #fff8e5; /* Світло-жовтий для узгодження з темою */
+    border: 2px solid #ffcc33; /* Жовтий обвід */
+    border-radius: 5px;
+    text-align: center;
+    color: #ff9900; /* Яскравий помаранчевий текст */
+}
+
+.counterWrapper button {
+    font-size: 1rem;
+    padding: 5px 15px;
+    background-color: #ffcc33; /* Жовта кнопка */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.counterWrapper button:hover {
+    background-color: #ff9900; /* Темніший жовтогарячий при наведенні */
+    transform: scale(1.05); /* Легке збільшення при наведенні */
+}
+
+.counterWrapper button:disabled {
+    background-color: #f0f0f0; /* Сірий для неактивного стану */
+    color: #ccc;
+    cursor: not-allowed;
+}
