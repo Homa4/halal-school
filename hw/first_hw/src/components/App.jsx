@@ -4,7 +4,7 @@ import Header from './Header'
 // import Button from './Button'
 // import Input from './Input'
 import Form from './Form'
-import Menu from './Menu'
+import Menu from './Menu/Menu'
 import pizzas from '../logic/data'
 import React from 'react'
 
