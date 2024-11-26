@@ -1,9 +1,8 @@
-function Input(){
-   const handleChange = () => {
-    console.log('chaged')
-   }
+function Input(props){
+   const { onChange } = props
+
     return(
-        <input type="text" placeholder="Your full name" aria-label="Your full name" onChange={handleChange}/>
+        <input type="text" placeholder="Your full name" aria-label="Your full name" onChange={onChange}/>
     )
 }
 
