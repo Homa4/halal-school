@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
 function Header(props){
+    const { children, user } = props
     return(
-        <header>
-            <div className="logo">{props.children}</div>
+        <header className="fpHeader">
+            <div className="logo">{children}</div>
+            <div className="userName">{user}</div>
         </header>
     )
 }

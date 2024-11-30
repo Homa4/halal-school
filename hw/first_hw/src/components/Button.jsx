@@ -15,8 +15,8 @@ function Button(props){
     }
 
     return(
-        // <button className="btn" onClick={openMenu}>{children}</button>
-        <Link  to='/menu'><button className="btn" onFocus={handleFocus} onClick={handleClick}>{children}</button></Link>
+        // <button className="btn" onClick={openMenu}>{children}</button> btn
+        <Link  to={'/menu'}><button  className={'btn'} onFocus={handleFocus} onClick={handleClick}>{children}</button></Link>  
         
     )
 }

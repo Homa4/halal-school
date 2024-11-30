@@ -1,8 +1,18 @@
-function Input(props){
-   const { onChange } = props
+/* eslint-disable no-unused-vars */
+function Input(props) {
+    const { updateName } = props
 
-    return(
-        <input type="text" placeholder="Your full name" aria-label="Your full name" onChange={onChange}/>
+    const handleChange = (event) => {
+        updateName(event.target.value)
+    }
+
+    return (
+        <input 
+        maxLength={12} 
+        type="text"
+        placeholder="Your full name"
+        aria-label="Your full name" 
+        onChange={handleChange} />
     )
 }
 

@@ -1,35 +1,41 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-import Header from './Header'
-// import Button from './Button'
-// import Input from './Input'
-import Form from './Form'
 import Menu from './Menu/Menu'
 import pizzas from '../logic/data'
 import React from 'react'
+import HFpage from './HFpage'
+import Orders from './Orders'
+import Context from '../logic/Context'
+
+
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element:
-      <div className="container">
-        <Header>PIZZA DAY</Header>
-        <Form/>
-      </div>,
+      <HFpage />,
   },
   {
-    path:'/menu',
+    path: '/menu',
     element: <Menu pizzas={pizzas} />,
+  },
+  {
+    path: '/orders',
+    element: <Orders />
   }
 ])
 
 function App() {
   return (
-      <React.StrictMode>
-        <RouterProvider router={router}/>
-      </React.StrictMode>
+    <React.StrictMode>
+      <Context>
+        <RouterProvider router={router} />
+      </Context>
+    </React.StrictMode>
   )
 }
+
+
 
 export default App

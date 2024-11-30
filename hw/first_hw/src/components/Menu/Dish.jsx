@@ -1,20 +1,32 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import Counter from './Conter';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { FormContext } from '../../logic/Context';
 
 function Dish(props) {
     const { element } = props
     const [state, setState] = useState(0);
+    const {formObj, updateName, addPizza} = useContext(FormContext);
+    
 
-    const hadleInc = () => {
+    const hadleIncrement= () => {
         setState(state+1)
     }
 
-    const hadleDec = () => {
+    const hadleDecrement = () => {
         if(state > 0){
             setState(state-1)
         }
     }
+
+    const pizzaNameNumObj = {
+        name:element.name,
+        numOfPizza:state,
+        price:element.unitPrice,
+
+    }
+
     return (
         <div className="dish">
             <div className={element.soldOut ? "availebleDishImg" : "unavailebleDishImg"}>
@@ -27,7 +39,8 @@ function Dish(props) {
             <div className="descriptionWrapper">
                 <p>{element.ingredients.join(", ")}</p>
             </div>
-            <Counter hadleInc={hadleInc} hadleDec={hadleDec} state={state}/>
+            <button className="orderButton" onClick={addPizza(pizzaNameNumObj)}>Order</button>
+            <Counter hadleIncrement={hadleIncrement} hadleDecrement={hadleDecrement} state={state}/>
         </div>
     )
 }

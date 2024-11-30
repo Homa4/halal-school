@@ -2,24 +2,13 @@
 import './Counter.css'
 
 function Counter(props){
-    const { hadleInc, hadleDec, state } = props
-    // const [state, setState] = useState(0);
-
-    // const hadleInc = () => {
-    //     setState(state+1)
-    // }
-
-    // const hadleDec = () => {
-    //     if(state > 0){
-    //         setState(state-1)
-    //     }
-    // }
+    const { hadleIncrement, hadleDecrement, state } = props
 
     return(
         <div className="counterWrapper">
             <div className="">{state}</div>
-            <button className="inc" onClick={hadleInc}>+</button>
-            <button className="dec" onClick={hadleDec}>-</button>
+            <button className="inc" onClick={hadleIncrement}>+</button>
+            <button className="dec" onClick={hadleDecrement}>-</button>
         </div>
     )
 }
