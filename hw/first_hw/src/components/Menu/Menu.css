@@ -24,8 +24,8 @@
     position: relative;
 }
 
-.availebleDishImg,
-.unavailebleDishImg {
+.availableDishImg,
+.unavailableDishImg {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,16 +37,16 @@
     margin-bottom: 15px;
 }
 
-.availebleDishImg img {
+.availableDishImg img {
     opacity: 1;
 }
 
-.unavailebleDishImg img {
+.unavailableDishImg img {
     opacity: 0.8;
     filter: grayscale(100%);
 }
 
-.unavailebleDishImg::before {
+.unavailableDishImg::before {
     content: '';
     position: absolute;
     top: 0;
