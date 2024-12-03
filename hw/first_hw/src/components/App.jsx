@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Menu from './Menu/Menu'
-import pizzas from '../logic/data'
 import React from 'react'
 import HFpage from './HFpage'
 import Orders from './Orders'
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/menu',
-    element: <Menu pizzas={pizzas} />,
+    element: <Menu />,
   },
   {
     path: '/orders',

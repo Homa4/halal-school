@@ -2,19 +2,38 @@
 import './Menu.css'
 import Dish from './Dish';
 import Orders from './OrdersBtn';
+import { useState, useEffect } from 'react';
 
-function Menu(props) {
-    const { pizzas } = props; // distruct
+
+function Menu() {
+    const [pizzas, setPizzaArr] = useState([]);
+    useEffect(() => {
+        const getPizzaList = async () => {
+            try {
+
+                const res = await fetch('https://react-fast-pizza-api.onrender.com/api/menu');
+                if (!res.ok) {
+                    throw new Error('Failed to fetch');
+                }
+                const data = await res.json();
+                // console.log(data.data);
+                setPizzaArr(data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getPizzaList();
+
+    }, [])
     return (
         <div className='dishesWrapper'>
-            {pizzas && pizzas.length > 0 ? ( //check if pizzas is not null or undefined
+            {
                 pizzas.map((element) => (
-                        <Dish key={element.id} element={element} />
+                    <Dish key={element.id} element={element} />
                 ))
-            ) : (
-                <p>No pizzas available</p>
-            )}
-            <Orders/>
+            }
+            <Orders />
         </div>
     );
 }

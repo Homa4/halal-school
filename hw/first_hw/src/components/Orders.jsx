@@ -6,7 +6,7 @@ import { FormContext } from '../context/Context';
 import { cartItems } from '../logic/orderList';
 
 function Orders() {
-    const { formObj, updateName } = useContext(FormContext);
+    const { formObj } = useContext(FormContext);
     
 
     return (
