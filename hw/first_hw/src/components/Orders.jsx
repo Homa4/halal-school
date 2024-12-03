@@ -2,7 +2,7 @@
 import './Orders.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { FormContext } from '../logic/Context';
+import { FormContext } from '../context/Context';
 import { cartItems } from '../logic/orderList';
 
 function Orders() {
