@@ -6,7 +6,6 @@ export const FormContext = createContext();
 function Context({ children }){
     let obj = {
         name:'Tolik',
-        pizzas_list:[],
     }
 
     const [formObj, setFormObjVal] = useState(obj);
@@ -18,16 +17,9 @@ function Context({ children }){
         }));
     };
 
-    const addPizza = (pizzaObj) => {
-        setFormObjVal((prevState) => ({
-            ...prevState,
-            pizzas_list: [...prevState.pizzas_list, pizzaObj],
-        }));
-    };
     const value ={
         formObj,
         updateName,
-        addPizza
     }
     return(
         <FormContext.Provider value={value}>

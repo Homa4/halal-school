@@ -1,24 +1,8 @@
 import Counter from '../Menu/Conter';
-import { useState, useContext, useEffect } from "react";
-import { FormContext } from '../../logic/Context';
+import { useState  } from "react";
 
 function Dish({ element }) {
     const [state, setState] = useState(0);
-    const { addPizza } = useContext(FormContext);
-    const [pizzaNameNumObj, setPizzaNameNumObj] = useState({
-        name: element.name,
-        numOfPizza: 0,
-        price: element.unitPrice,
-    });
-
-    useEffect(() => {
-        // Dynamically update `numOfPizza` when `state` changes
-        setPizzaNameNumObj(prev => ({
-            ...prev,
-            numOfPizza: state,
-        }));
-    }, [state]);
-
     const handleIncrement = () => {
         setState(prevState => prevState + 1);
     };
@@ -43,7 +27,6 @@ function Dish({ element }) {
             </div>
             <button 
                 className="orderButton" 
-                onClick={() => addPizza(pizzaNameNumObj)}
                 disabled={!element.soldOut} // Disable button for sold-out items
             >
                 Order

@@ -3,10 +3,11 @@ import './Orders.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { FormContext } from '../logic/Context';
+import { cartItems } from '../logic/orderList';
 
 function Orders() {
-    const { formObj, updateName, addPizza } = useContext(FormContext);
-    const pizzaArr = formObj.pizzas_list || []; // Ensure it's defined
+    const { formObj, updateName } = useContext(FormContext);
+    
 
     return (
         <>
@@ -26,14 +27,14 @@ function Orders() {
                 </Link>
                 <h1 className="cart-title">Your cart, {formObj.name}</h1>
                 <div className="cart-items">
-                    {pizzaArr.map((obj, index) => (
+                    {cartItems.map((obj, index) => (
                         <div className="cart-item" key={index}>
-                            <span className="quantity-text">{obj.numOfPizza}x</span>
+                            <span className="quantity-text">{obj.quantity}x</span>
                             <span>{obj.name}</span>
                             <span className="price">€{obj.price}</span>
                             <div className="quantity-controls">
                                 <button className="quantity-btn">-</button>
-                                <span>{obj.numOfPizza}</span>
+                                <span>{obj.quantity}</span>
                                 <button className="quantity-btn">+</button>
                                 <button className="delete-btn">DELETE</button>
                             </div>

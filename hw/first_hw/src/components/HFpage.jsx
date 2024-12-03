@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { FormContext } from "../logic/Context";
 
 function HFpage() {
-    const {formObj, updateName, addPizza} = useContext(FormContext);
+    const {formObj, updateName } = useContext(FormContext);
     return (
         <div className="container">
             <Header user={formObj.name}>PIZZA DAY</Header>
