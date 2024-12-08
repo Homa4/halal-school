@@ -1,23 +1,20 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom'
 
+function Button(props) {
+    const {
+        children,
+        className,
+        onClick
+    } = props
 
-function Button(props){
-    const { children } = props
-    const handleClick = (event) => {
-        console.log('event:', event)
-        console.log('native event:', event.nativeEvent)
+    return (
+        <button
+            className={className}
+            onClick={onClick}
+        >
+            {children}
+        </button>
 
-    }
-
-    const handleFocus = () => {
-        console.log('focus')
-    }
-
-    return(
-        // <button className="btn" onClick={openMenu}>{children}</button> btn
-        <Link  to={'/menu'}><button  className={'btn'} onFocus={handleFocus} onClick={handleClick}>{children}</button></Link>  
-        
     )
 }
 

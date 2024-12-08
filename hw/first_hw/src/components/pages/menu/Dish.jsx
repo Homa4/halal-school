@@ -1,5 +1,6 @@
 import Counter from '../Menu/Conter';
 import { useState  } from "react";
+import Button from '../../Button';
 
 function Dish({ element }) {
     const [state, setState] = useState(0);
@@ -25,12 +26,12 @@ function Dish({ element }) {
             <div className="descriptionWrapper">
                 <p>{element.ingredients.join(", ")}</p>
             </div>
-            <button 
+            <Button 
                 className="orderButton" 
-                disabled={!element.soldOut} // Disable button for sold-out items
+                disabled={!element.soldOut}
             >
                 Order
-            </button>
+            </Button>
             <Counter 
                 handleIncrement={handleIncrement} 
                 handleDecrement={handleDecrement} 

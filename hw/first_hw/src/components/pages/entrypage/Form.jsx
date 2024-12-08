@@ -1,10 +1,16 @@
 
-import Button from './Button'
+import Button from '../../Button'
 import Input from './Input'
+import { useNavigate } from 'react-router-dom'
 
 
 function Form(props) {
     const { name, updateName } = props;
+    
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("/menu")
+    }
     return (
         <div className="main">
             <h1>The best pizza.</h1>
@@ -12,7 +18,7 @@ function Form(props) {
             <p className="welcome">👉 Welcome! Please start by telling us your name:</p>
             <Input updateName={updateName} />
             {console.log(name)}
-            <Button >Start Order</Button>
+            <Button onClick={handleClick} className="btn">Start Order</Button>
         </div>
     )
 }

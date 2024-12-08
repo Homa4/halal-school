@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-import Menu from './Menu/Menu'
+import Menu from './pages/menu/Menu'
 import React from 'react'
-import HFpage from './HFpage'
-import Orders from './Orders'
+import HFpage from './pages/entrypage/HFpage'
+import Orders from './pages/orderspage/Orders'
 
 
 

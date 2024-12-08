@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './Menu.css'
 import Dish from './Dish';
-import Orders from './OrdersBtn';
+import OrdersBtn from './OrdersBtn';
 import { useState, useEffect } from 'react';
 
 
@@ -33,7 +33,7 @@ function Menu() {
                     <Dish key={element.id} element={element} />
                 ))
             }
-            <Orders />
+            <OrdersBtn />
         </div>
     );
 }
