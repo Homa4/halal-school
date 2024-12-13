@@ -4,7 +4,7 @@ import Form from './Form'
 // import { useState } from "react";
 //comments
 import { useContext } from 'react';
-import { FormContext } from "../../../context/Context";
+import { FormContext } from "../../../context/FormContext";
 
 function HFpage() {
     const {formObj, updateName } = useContext(FormContext);
