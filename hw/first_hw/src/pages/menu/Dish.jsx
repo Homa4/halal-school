@@ -1,6 +1,6 @@
 import Counter from '../Menu/Conter';
 import { useState  } from "react";
-import Button from '../../Button';
+import Button from '../../components/Button';
 
 function Dish({ element }) {
     const [state, setState] = useState(0);

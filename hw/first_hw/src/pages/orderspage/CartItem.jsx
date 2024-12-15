@@ -1,5 +1,5 @@
 import './Orders.css';
-import Button from '../../Button';
+import Button from '../../components/Button';
 
 function CartItem(props) {
     const { obj } = props

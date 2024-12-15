@@ -2,9 +2,9 @@
 import './Orders.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { FormContext } from '../../../context/FormContext';
-import { cartItems } from '../../../logic/orderList';
-import Button from '../../Button';
+import { FormContext } from '../../context/FormContext';
+import { cartItems } from '../../logic/orderList';
+import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom'
 import CartItem from './CartItem';
 
