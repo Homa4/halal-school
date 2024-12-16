@@ -12,8 +12,8 @@ function Orders() {
     const { formObj } = useContext(FormContext);
     const navigate = useNavigate()
 
-    const handleClick = () => {
-        navigate("/menu")
+    const moveToClientInfo = () => {
+        navigate("/clientInfo")
     }
 
     return (
@@ -44,6 +44,7 @@ function Orders() {
                 <div className="cart-actions">
                     <Button
                         className="order-btn"
+                        onClick={moveToClientInfo}
                     >
                         Order pizzas
                     </Button>

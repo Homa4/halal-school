@@ -4,7 +4,7 @@ import Menu from '../pages/menu/Menu'
 // import React from 'react'
 import HFpage from '../pages/entrypage/HFpage'
 import Orders from '../pages/orderspage/Orders'
-
+import ClientInfo from '../pages/clientInfo/ClientInfo'
 
 
 
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/orders',
     element: <Orders />
+  },
+  {
+    path:'/clientInfo',
+    element: <ClientInfo/>
   }
 ])
 
