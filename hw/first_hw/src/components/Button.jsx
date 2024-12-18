@@ -4,13 +4,16 @@ function Button(props) {
     const {
         children,
         className,
-        onClick
+        type,
+        onClick,
+
     } = props
 
     return (
         <button
             className={className}
             onClick={onClick}
+            type={type}
         >
             {children}
         </button>

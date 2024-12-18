@@ -1,4 +1,6 @@
 import './OrderForm.css'
+import Button from '../../components/Button'
+import InputReusable from '../../components/InputReusable'
 
 function OrderForm() {
     return (
@@ -8,31 +10,31 @@ function OrderForm() {
             <form className="form">
                 <div className="form-group">
                     <label className="name-order-form" htmlFor="firstName">First Name</label>
-                    <input type="text" id="firstName" value="vlad" readOnly></input>
+                    <InputReusable type="text" id="firstName" value="vlad" readOnly/>
                 </div>
 
                 <div className="form-group">
                     <label className="phone-order-form" htmlFor="phone">Phone number</label>
-                    <input type="tel" id="phone" required></input>
+                    <InputReusable type="tel" id="phone" required/>
                 </div>
 
                 <div className="form-group">
                     <label className="address-order-form" htmlFor="address">Address</label>
                     <div className="input-wrapper">
-                        <input type="text" id="address" required></input>
+                        <InputReusable type="text" id="address" required />
                     </div>
                 </div>
 
                 <div className="checkbox-group">
                     <div className="checkbox-wrapper">
-                        <input type="checkbox" id="priority"></input>
+                        <InputReusable type="checkbox" id="priority"/>
                             <label htmlFor="priority">Want to give your order priority?</label>
                     </div>
                 </div>
 
-                <button type="submit" className="order-btn">
+                <Button type="submit" className="order-btn">
                     Order now for €12.00
-                </button>
+                </Button>
             </form>
         </div>
     )
