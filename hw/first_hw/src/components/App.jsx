@@ -4,7 +4,7 @@ import Menu from '../pages/menu/Menu'
 // import React from 'react'
 import HFpage from '../pages/entrypage/HFpage'
 import Orders from '../pages/orderspage/Orders'
-import ClientInfo from '../pages/clientInfo/ClientInfo'
+import OrderForm from '../pages/clientInfo/OrderForm'
 
 
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/clientInfo',
-    element: <ClientInfo/>
+    element: <OrderForm/>
   }
 ])
 

@@ -5,18 +5,18 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+/* body {
     background-color: #f8f9fa;
     min-height: 100vh;
-}
+} */
 
-.container {
+.container-order-form {
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-h1 {
+.header-order-form {
     font-size: 2rem;
     color: #333;
     margin-bottom: 2rem;
@@ -24,9 +24,11 @@ h1 {
 
 .form-group {
     margin-bottom: 1.5rem;
+
+    /* margin: auto; */
 }
 
-label {
+.phone-order-form, .name-order-form, .address-order-form {
     display: block;
     font-size: 1.1rem;
     color: #444;
@@ -53,7 +55,6 @@ input[type="tel"] {
 
 .checkbox-wrapper {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
 }
 
@@ -80,3 +81,4 @@ input[type="checkbox"] {
 .order-btn:hover {
     background: #e5a700;
 }
+

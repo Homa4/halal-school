@@ -1,23 +1,23 @@
-import './ClientInfo.css'
+import './OrderForm.css'
 
-function ClientInfo() {
+function OrderForm() {
     return (
-        <div className="container">
-            <h1>Ready to order? Let&apos;s go!</h1>
+        <div className="container-order-form">
+            <h1 className="header-order-form">Ready to order? Let&apos;s go!</h1>
 
-            <form>
+            <form className="form">
                 <div className="form-group">
-                    <label htmlFor="firstName">First Name</label>
+                    <label className="name-order-form" htmlFor="firstName">First Name</label>
                     <input type="text" id="firstName" value="vlad" readOnly></input>
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="phone">Phone number</label>
+                    <label className="phone-order-form" htmlFor="phone">Phone number</label>
                     <input type="tel" id="phone" required></input>
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="address">Address</label>
+                    <label className="address-order-form" htmlFor="address">Address</label>
                     <div className="input-wrapper">
                         <input type="text" id="address" required></input>
                     </div>
@@ -38,4 +38,4 @@ function ClientInfo() {
     )
 }
 
-export default ClientInfo
+export default OrderForm
