@@ -6,7 +6,6 @@ function Button(props) {
         className,
         type,
         onClick,
-
     } = props
 
     return (

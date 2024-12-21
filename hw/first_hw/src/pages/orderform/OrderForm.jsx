@@ -1,6 +1,6 @@
 import './OrderForm.css'
 import Button from '../../components/Button'
-import InputReusable from '../../components/InputReusable'
+import InputReusable from '../../components/Input'
 
 function OrderForm() {
     return (
