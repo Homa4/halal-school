@@ -1,0 +1,136 @@
+/* Container Wrappers */
+.container-order-status-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px;
+  }
+  
+  .container-order-status {
+    max-width: 800px;
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Content padding */
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Space below */
+  }
+  
+  .order-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #343a40; /* Dark gray */
+  }
+  
+  .badges {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Pill shape */
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+  
+  .badge-priority {
+    background-color: #dc3545; /* Red */
+  }
+  
+  .badge-preparing {
+    background-color: #28a745; /* Green */
+  }
+  
+  /* Time Banner */
+  .time-banner {
+    background-color: #f0f8ff; /* Light blue */
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .time-left {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #495057; /* Medium gray */
+  }
+  
+  .estimated-time {
+    font-size: 0.9rem;
+    color: #6c757d; /* Muted gray */
+  }
+  
+  /* Order Details */
+  .order-details {
+    margin-bottom: 2rem;
+  }
+  
+  .pizza-item {
+    margin-bottom: 1rem;
+  }
+  
+  .pizza-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pizza-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #343a40; /* Dark gray */
+  }
+  
+  .pizza-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745; /* Green */
+  }
+  
+  .ingredients {
+    font-size: 0.9rem;
+    color: #6c757d; /* Muted gray */
+    font-style: italic;
+  }
+  
+  /* Price Breakdown */
+  .price-breakdown {
+    background-color: #f8f9fa; /* Light gray */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .price-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price-label {
+    font-size: 1rem;
+    color: #495057; /* Medium gray */
+  }
+  
+  .price-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #343a40; /* Dark gray */
+  }
+  

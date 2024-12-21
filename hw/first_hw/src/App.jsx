@@ -5,6 +5,7 @@ import Menu from "./pages/menu/Menu";
 import HFpage from "./pages/entrypage/HFpage";
 import Orders from "./pages/orderspage/Orders";
 import OrderForm from "./pages/orderform/OrderForm";
+import OrderStatus from "./pages/orderstatus/OrderStatus";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/orderform",
     element: <OrderForm />,
+  },
+  {
+    path: "/orders:status",
+    element: <OrderStatus />,
   },
 ]);
 
