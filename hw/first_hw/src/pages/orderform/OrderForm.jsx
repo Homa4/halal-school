@@ -1,30 +1,40 @@
 import "./OrderForm.css";
 import Button from "../../components/Button";
-import InputReusable from "../../components/Input";
+import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
+import { FormContext } from "../../context/FormContext";
+import { useContext } from "react";
 
 function OrderForm() {
   const navigate = useNavigate();
-  const moveToOrderStatus = () => {
+  const { formObj, setPriority } = useContext(FormContext);
+
+  const moveToOrderStatus = (e) => {
+    e.preventDefault(); // Prevent form submission reload
     navigate("/orders:status");
   };
+
+  const handlePriorityChange = (e) => {
+    setPriority(e.target.checked); // Pass the checkbox's checked state
+  };
+
   return (
     <div className="container-order-form">
       <h1 className="header-order-form">Ready to order? Let&apos;s go!</h1>
 
-      <form className="form">
+      <form className="form" onSubmit={moveToOrderStatus}>
         <div className="form-group">
           <label className="name-order-form" htmlFor="firstName">
             First Name
           </label>
-          <InputReusable type="text" id="firstName" value="vlad" readOnly />
+          <Input type="text" id="firstName" value="vlad" readOnly />
         </div>
 
         <div className="form-group">
           <label className="phone-order-form" htmlFor="phone">
             Phone number
           </label>
-          <InputReusable type="tel" id="phone" required />
+          <Input type="tel" id="phone" required />
         </div>
 
         <div className="form-group">
@@ -32,18 +42,23 @@ function OrderForm() {
             Address
           </label>
           <div className="input-wrapper">
-            <InputReusable type="text" id="address" required />
+            <Input type="text" id="address" required />
           </div>
         </div>
 
         <div className="checkbox-group">
           <div className="checkbox-wrapper">
-            <InputReusable type="checkbox" id="priority" />
+            <Input
+              type="checkbox"
+              id="priority"
+              checked={formObj.priority} // Bind checkbox to context
+              onChange={handlePriorityChange} // Handle change event
+            />
             <label htmlFor="priority">Want to give your order priority?</label>
           </div>
         </div>
 
-        <Button type="submit" className="order-btn" onClick={moveToOrderStatus}>
+        <Button type="submit" className="order-btn">
           Order now for €12.00
         </Button>
       </form>

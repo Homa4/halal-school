@@ -24,6 +24,7 @@ function Dish({ element }) {
           name: element.name,
           price: element.unitPrice,
           quantity: 1, // Default quantity
+          ingredients: element.ingredients,
         },
       });
     }

@@ -65,20 +65,6 @@ function DishContext({ children }) {
           orders: state.orders.filter((order) => order.id !== action.data.id),
         };
 
-      case "UpdateOrderQuantity":
-        if (action.data.quantity < 0) {
-          console.warn("UpdateOrderQuantity: Quantity cannot be negative.");
-          return state; // No state update if invalid
-        }
-        return {
-          ...state,
-          orders: state.orders.map((order) =>
-            order.id === action.data.id
-              ? { ...order, quantity: action.data.quantity }
-              : order
-          ),
-        };
-
       default:
         return state;
     }
@@ -90,6 +76,7 @@ function DishContext({ children }) {
       name: "name",
       price: 0,
       quantity: 0,
+      ingridients: "",
     },
     orders: [], // Ensure this is an array
   };

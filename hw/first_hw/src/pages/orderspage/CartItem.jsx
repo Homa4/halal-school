@@ -1,36 +1,57 @@
-import './Orders.css';
-import Button from '../../components/Button';
+import "./Orders.css";
+import Button from "../../components/Button";
+import { useContext } from "react";
+import { ContextForDish } from "../../context/DishContext";
 
-function CartItem(props) {
-    const { obj } = props
-    return (
+function CartItem({ obj }) {
+  const { state, dispatch } = useContext(ContextForDish);
 
-        <div className="cart-item">
-            <span className="quantity-text">{obj.quantity}x</span>
-            <span>{obj.name}</span>
-            <span className="price">€{obj.price}</span>
-            <div className="quantity-controls">
-                <Button
-                    className="quantity-btn"
-                >
-                    -
-                </Button>
-                <span>{obj.quantity}</span>
-                <Button
-                    className="quantity-btn"
-                >
-                    +
-                </Button>
-                <Button
-                    className="delete-btn"
-                >
-                    DELETE
-                </Button>
-            </div>
-        </div>
+  const currentId = obj.id;
+  const currentElement = state.orders.find(
+    (element) => element.id === currentId
+  );
+  const handleIncrement = () => {
+    dispatch({
+      type: "Increment",
+      data: { id: currentId },
+    });
+    console.log(currentElement);
+  };
 
-
-    )
+  const handleDecrement = () => {
+    dispatch({
+      type: "Decrement",
+      data: { id: currentId },
+    });
+    console.log(currentElement);
+  };
+  const handleRemoveOrder = () => {
+    dispatch({
+      type: "RemoveOrder",
+      data: { id: currentId },
+    });
+    console.log("remove from cart list");
+    console.log("Current state:", state.orders);
+  };
+  return (
+    <div className="cart-item">
+      <span className="quantity-text">{currentElement?.quantity || 0}x</span>
+      <span>{obj.name}</span>
+      <span className="price">€{obj.price}</span>
+      <div className="quantity-controls">
+        <Button className="quantity-btn" onClick={handleDecrement}>
+          -
+        </Button>
+        <span>{currentElement?.quantity || 0}</span>
+        <Button className="quantity-btn" onClick={handleIncrement}>
+          +
+        </Button>
+        <Button className="delete-btn" onClick={handleRemoveOrder}>
+          DELETE
+        </Button>
+      </div>
+    </div>
+  );
 }
 
-export default CartItem
+export default CartItem;

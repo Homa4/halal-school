@@ -1,13 +1,37 @@
 import "./OrderStatus.css";
+import OrderStatusItem from "./OrderStatusItem";
+import { useContext } from "react";
+import { ContextForDish } from "../../context/DishContext";
+import { FormContext } from "../../context/FormContext";
 
 function OrderStatus() {
+  const { state } = useContext(ContextForDish);
+  const { formObj } = useContext(FormContext);
+
+  // Calculate total pizza price dynamically
+  const totalPizzaPrice = state.orders
+    ? state.orders.reduce(
+        (sum, order) => sum + order.price * (order.quantity || 1),
+        0
+      )
+    : 0;
+
+  // Priority price
+  const priorityPrice = formObj.priority ? 12 : 0;
+  console.log(formObj);
+
+  // Total price
+  const totalPrice = totalPizzaPrice + priorityPrice;
+
   return (
     <div className="container-order-status-wrapper">
       <div className="container-order-status">
         <div className="header">
           <h1 className="order-title">Order #5T460L status: preparing</h1>
           <div className="badges">
-            <span className="badge badge-priority">PRIORITY</span>
+            {formObj.priority && (
+              <span className="badge badge-priority">PRIORITY</span>
+            )}
             <span className="badge badge-preparing">PREPARING ORDER</span>
           </div>
         </div>
@@ -19,28 +43,28 @@ function OrderStatus() {
           </div>
         </div>
 
-        <div className="order-details">
-          <div className="pizza-item">
-            <div className="pizza-header">
-              <span className="pizza-name">1× Margherita</span>
-              <span className="pizza-price">€12.00</span>
-            </div>
-            <div className="ingredients">Tomato, Mozzarella, Basil</div>
-          </div>
-        </div>
+        {state.orders && state.orders.length > 0 ? (
+          state.orders.map((obj) => (
+            <OrderStatusItem key={obj.id || obj.name} obj={obj} />
+          ))
+        ) : (
+          <div>You haven&apos;t ordered yet</div>
+        )}
 
         <div className="price-breakdown">
           <div className="price-item">
             <span className="price-label">Price pizza:</span>
-            <span className="price-value">€12.00</span>
+            <span className="price-value">€{totalPizzaPrice.toFixed(2)}</span>
           </div>
-          <div className="price-item">
-            <span className="price-label">Price priority:</span>
-            <span className="price-value">€2.00</span>
-          </div>
+          {formObj.priority && (
+            <div className="price-item">
+              <span className="price-label">Price priority:</span>
+              <span className="price-value">€{priorityPrice.toFixed(2)}</span>
+            </div>
+          )}
           <div className="price-item">
             <span className="price-label">To pay on delivery:</span>
-            <span className="price-value">€14.00</span>
+            <span className="price-value">€{totalPrice.toFixed(2)}</span>
           </div>
         </div>
       </div>

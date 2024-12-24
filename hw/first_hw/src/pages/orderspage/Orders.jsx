@@ -7,9 +7,11 @@ import { cartItems } from "../../logic/orderList";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
+import { ContextForDish } from "../../context/DishContext";
 
 function Orders() {
   const { formObj } = useContext(FormContext);
+  const { state, dispatch } = useContext(ContextForDish);
   const navigate = useNavigate();
 
   const moveToClientInfo = () => {
@@ -35,10 +37,11 @@ function Orders() {
 
         <h1 className="cart-title">Your cart, {formObj.name}</h1>
         <div className="cart-items">
-          {cartItems.map((obj, index) => (
-            // eslint-disable-next-line react/jsx-key
-            <CartItem key={index} obj={obj} />
-          ))}
+          {state.orders
+            ? state.orders.map((obj, index) => (
+                <CartItem key={index} obj={obj} />
+              ))
+            : "You haven't ordered yet"}
         </div>
 
         <div className="cart-actions">

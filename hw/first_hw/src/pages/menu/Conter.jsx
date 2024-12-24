@@ -12,7 +12,7 @@ function Counter({ id }) {
     if (currentElement) {
       dispatch({
         type: "Increment",
-        data: { id },
+        data: { id: id },
       });
     }
   };
@@ -21,7 +21,7 @@ function Counter({ id }) {
     if (currentElement && currentElement.quantity > 0) {
       dispatch({
         type: "Decrement",
-        data: { id },
+        data: { id: id },
       });
     }
   };
