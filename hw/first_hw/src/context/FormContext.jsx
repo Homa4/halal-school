@@ -4,12 +4,12 @@ import { useState, createContext } from "react";
 export const FormContext = createContext();
 
 function Context({ children }) {
-  let obj = {
+  const initialFormObj = {
     name: "Tolik",
     priority: false,
   };
 
-  const [formObj, setFormObjVal] = useState(obj);
+  const [formObj, setFormObjVal] = useState(initialFormObj);
 
   const updateName = (newName) => {
     setFormObjVal((prevState) => ({
@@ -18,10 +18,11 @@ function Context({ children }) {
     }));
   };
 
-  const setPriority = (pr) => {
+  const setPriority = (isPriority) => {
+    console.log("Setting priority to:", isPriority);
     setFormObjVal((prevState) => ({
       ...prevState,
-      priority: pr,
+      priority: isPriority,
     }));
   };
 
@@ -30,6 +31,7 @@ function Context({ children }) {
     updateName,
     setPriority,
   };
+
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }
 

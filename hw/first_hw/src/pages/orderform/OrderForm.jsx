@@ -10,12 +10,12 @@ function OrderForm() {
   const { formObj, setPriority } = useContext(FormContext);
 
   const moveToOrderStatus = (e) => {
-    e.preventDefault(); // Prevent form submission reload
+    e.preventDefault();
     navigate("/orders:status");
   };
 
   const handlePriorityChange = (e) => {
-    setPriority(e.target.checked); // Pass the checkbox's checked state
+    setPriority(e.target.checked);
   };
 
   return (
