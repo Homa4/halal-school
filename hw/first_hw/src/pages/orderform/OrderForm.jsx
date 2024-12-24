@@ -16,6 +16,7 @@ function OrderForm() {
 
   const handlePriorityChange = (e) => {
     setPriority(e.target.checked);
+    console.log(formObj);
   };
 
   return (
@@ -51,7 +52,6 @@ function OrderForm() {
             <Input
               type="checkbox"
               id="priority"
-              checked={formObj.priority} // Bind checkbox to context
               onChange={handlePriorityChange} // Handle change event
             />
             <label htmlFor="priority">Want to give your order priority?</label>
