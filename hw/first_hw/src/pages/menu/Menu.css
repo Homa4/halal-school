@@ -103,12 +103,35 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.orderButton:hover {
+.cancelOrder{
+    background-color: #ff9500;
+    color: white;
+    font-size: 14px;
+    font-weight: bold; 
+    padding: 10px 15px; 
+    border: 2px solid #ff9500;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%; 
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.orderButton:hover, .canselOrder {
     background-color: #e68900;
     border-color: #e68900; 
 }
 
-.orderButton:focus {
+.orderButton:focus, .canselOrder:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 149, 0, 0.4); 
+}
+
+
+
+.notAwailable{
+    color: crimson;
+    border: 1px solid crimson;
+    border-radius: 20px;
+    padding: 5px;
 }

@@ -1,16 +1,46 @@
-// 
-import './Counter.css'
+import { useContext } from "react";
+import { ContextForDish } from "../../context/DishContext";
+import "./Counter.css";
 
-function Counter(props){
-    const { hadleIncrement, hadleDecrement, state } = props
+function Counter({ id }) {
+  const { state, dispatch } = useContext(ContextForDish);
 
-    return(
-        <div className="counterWrapper">
-            <div className="">{state}</div>
-            <button className="inc" onClick={hadleIncrement}>+</button>
-            <button className="dec" onClick={hadleDecrement}>-</button>
-        </div>
-    )
+  // Find the current element by ID
+  const currentElement = state.orders.find((element) => element.id === id);
+
+  const handleIncrement = () => {
+    if (currentElement) {
+      dispatch({
+        type: "Increment",
+        data: { id },
+      });
+    }
+  };
+
+  const handleDecrement = () => {
+    if (currentElement && currentElement.quantity > 0) {
+      dispatch({
+        type: "Decrement",
+        data: { id },
+      });
+    }
+  };
+
+  return (
+    <div className="counterWrapper">
+      <button
+        className="dec"
+        onClick={handleDecrement}
+        disabled={!currentElement || currentElement.quantity === 0}
+      >
+        -
+      </button>
+      <div className="quantityDisplay">{currentElement?.quantity || 0}</div>
+      <button className="inc" onClick={handleIncrement}>
+        +
+      </button>
+    </div>
+  );
 }
 
-export default Counter
+export default Counter;
