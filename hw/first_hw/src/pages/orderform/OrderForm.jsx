@@ -1,58 +1,116 @@
 import "./OrderForm.css";
 import Button from "../../components/Button";
-import Input from "../../components/Input";
 import { useNavigate } from "react-router-dom";
 import { FormContext } from "../../context/FormContext";
 import { useContext } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useForm, useController } from "react-hook-form";
+
+const formSchema = z.object({
+  name: z.string({ message: "Maximum 8 characters" }).max(8),
+  phone: z.string({ message: "Minimum 10 characters" }).min(10),
+  address: z.string(),
+});
 
 function OrderForm() {
   const navigate = useNavigate();
   const { formObj, setPriority } = useContext(FormContext);
 
-  const moveToOrderStatus = (e) => {
-    e.preventDefault();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+    defaultValues: {
+      name: formObj.name,
+      phone: "",
+      address: "",
+    },
+    resolver: zodResolver(formSchema),
+  });
+
+  const ControlledInput = ({ name, placeholder, type, id }) => {
+    const {
+      field: { value, onChange, ref },
+    } = useController({ name, control });
+
+    return (
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        ref={ref}
+      />
+    );
+  };
+
+  const onSubmit = (data) => {
+    // setPriority();
+    console.log("Form submitted with data:", data);
     navigate("/orders:status");
   };
 
-  const handlePriorityChange = (e) => {
-    setPriority(e.target.checked);
-    console.log(formObj);
+  const handleClick = (event) => {
+    // setPriority();
+    setPriority(event.target.value);
   };
 
   return (
     <div className="container-order-form">
       <h1 className="header-order-form">Ready to order? Let&apos;s go!</h1>
 
-      <form className="form" onSubmit={moveToOrderStatus}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
-          <label className="name-order-form" htmlFor="firstName">
-            First Name
+          <label className="name-order-form" htmlFor="name">
+            Name
           </label>
-          <Input type="text" id="firstName" value="vlad" readOnly />
+          <ControlledInput
+            name="name"
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+          />
+          {errors.name && <p className="error">{errors.name.message}</p>}
         </div>
 
         <div className="form-group">
           <label className="phone-order-form" htmlFor="phone">
-            Phone number
+            Phone
           </label>
-          <Input type="tel" id="phone" required />
+          <ControlledInput
+            name="phone"
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+          />
+          {errors.phone && <p className="error">{errors.phone.message}</p>}
         </div>
 
         <div className="form-group">
           <label className="address-order-form" htmlFor="address">
             Address
           </label>
-          <div className="input-wrapper">
-            <Input type="text" id="address" required />
-          </div>
+          <ControlledInput
+            name="address"
+            type="text"
+            id="address"
+            placeholder="Enter your address"
+          />
+          {errors.address && <p className="error">{errors.address.message}</p>}
         </div>
 
         <div className="checkbox-group">
           <div className="checkbox-wrapper">
-            <Input
+            <input
+              name="priority"
               type="checkbox"
               id="priority"
-              onChange={handlePriorityChange} // Handle change event
+              onClick={handleClick}
             />
             <label htmlFor="priority">Want to give your order priority?</label>
           </div>

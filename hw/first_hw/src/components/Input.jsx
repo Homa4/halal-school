@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-function InputReusable(props) {
+function Input(props) {
   const {
     updateName,
     className,
@@ -28,4 +28,4 @@ function InputReusable(props) {
   );
 }
 
-export default InputReusable;
+export default Input;

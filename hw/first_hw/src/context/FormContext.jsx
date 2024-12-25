@@ -11,10 +11,10 @@ function Context({ children }) {
 
   const [formObj, setFormObjVal] = useState(initialFormObj);
 
-  const updateName = (newName) => {
+  const updateName = () => {
     setFormObjVal((prevState) => ({
       ...prevState,
-      name: newName,
+      name: !prevState.priority,
     }));
   };
 
@@ -22,7 +22,7 @@ function Context({ children }) {
     console.log("Setting priority to:", isPriority);
     setFormObjVal((prevState) => ({
       ...prevState,
-      priority: isPriority,
+      priority: isPriority === "on",
     }));
   };
 

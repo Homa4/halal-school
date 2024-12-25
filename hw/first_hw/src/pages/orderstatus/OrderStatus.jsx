@@ -8,7 +8,6 @@ function OrderStatus() {
   const { state } = useContext(ContextForDish);
   const { formObj } = useContext(FormContext);
 
-  // Calculate total pizza price dynamically
   const totalPizzaPrice = state.orders
     ? state.orders.reduce(
         (sum, order) => sum + order.price * (order.quantity || 1),
@@ -16,11 +15,9 @@ function OrderStatus() {
       )
     : 0;
 
-  // Priority price
   const priorityPrice = formObj.priority ? 12 : 0;
   console.log(formObj);
 
-  // Total price
   const totalPrice = totalPizzaPrice + priorityPrice;
 
   return (
