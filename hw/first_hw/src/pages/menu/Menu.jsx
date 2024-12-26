@@ -19,7 +19,8 @@ const ErrorFallback = ({ error }) => {
 function Menu() {
   const [pizzas, setPizzaArr] = useState([]);
   const { state } = useContext(ContextForDish);
-  const url = "https://react-fast-pizza-api.onrender.com/api/menu";
+  // const url = "https://react-fast-pizza-api.onrender.com/api/menu";
+  const url = "https://react-fast-pizza-api.onrender.com/api/men";
 
   useEffect(() => {
     console.log("Updated state:", state.orders);

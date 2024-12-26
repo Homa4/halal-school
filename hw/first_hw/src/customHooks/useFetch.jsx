@@ -25,7 +25,7 @@ function useFetch(url) {
         setData(result.data);
       } catch (error) {
         if (error.name === "AbortError") {
-          return;
+          abortish.abort();
         }
 
         setError(error.message);
@@ -36,9 +36,9 @@ function useFetch(url) {
 
     fetchData();
 
-    return () => {
-      abortish.abort();
-    };
+    // return () => {
+    //   abortish.abort();
+    // };
   }, [url]);
 
   return { data, isLoading, error };
