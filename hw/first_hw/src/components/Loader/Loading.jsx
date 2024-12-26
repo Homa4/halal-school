@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseProps, DEFAULT_WAI_ARIA_ATTRIBUTE } from "./type";
+import { BaseProps, DEFAULT_WAI_ARIA_ATTRIBUTE, DEFAULT_COLOR } from "./type";
 import { SVG_NAMESPACE } from "./constants";
 
 const Loading = ({
@@ -27,7 +27,7 @@ const Loading = ({
     >
       <title>Blocks</title>
       <desc>Animated representation of blocks</desc>
-      <rect x="17" y="17" width="20" height="20" fill="#577c9b">
+      <rect x="17" y="17" width="20" height="20" fill={DEFAULT_COLOR}>
         <animate
           attributeName="fill"
           values="#0dceff;#577c9b;#577c9b"
