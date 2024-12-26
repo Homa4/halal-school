@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { FormContext } from "../../context/FormContext";
 import { useContext } from "react";
-
+import { ContextForDish } from "../../context/DishContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm, useController } from "react-hook-form";
@@ -17,6 +17,14 @@ const formSchema = z.object({
 function OrderForm() {
   const navigate = useNavigate();
   const { formObj, setPriority } = useContext(FormContext);
+  const { state } = useContext(ContextForDish);
+
+  const totalPizzaPrice = state.orders
+    ? state.orders.reduce(
+        (sum, order) => sum + order.price * (order.quantity || 1),
+        0
+      )
+    : 0;
 
   const {
     control,
@@ -117,7 +125,7 @@ function OrderForm() {
         </div>
 
         <Button type="submit" className="order-btn">
-          Order now for €12.00
+          Order now for ₴{totalPizzaPrice}
         </Button>
       </form>
     </div>

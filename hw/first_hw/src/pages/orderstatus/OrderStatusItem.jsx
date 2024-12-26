@@ -7,7 +7,7 @@ function OrderStatusItems({ obj }) {
             <span className="pizza-name">{`${obj.quantity}x ${obj.name}`}</span>
             <span className="pizza-price">€{obj.price * obj.quantity}</span>
           </div>
-          <div className="ingredients">{obj.ingredients}</div>
+          <div className="ingredients">{obj.ingredients.join(", ")}</div>
         </div>
       </div>
     </>

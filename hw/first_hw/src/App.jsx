@@ -1,32 +1,55 @@
+import Loading from "./components/Loader/Loading";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import "./App.css";
-import Menu from "./pages/menu/Menu";
-// import React from 'react'
-import HFpage from "./pages/entrypage/HFpage";
-import Orders from "./pages/orderspage/Orders";
-import OrderForm from "./pages/orderform/OrderForm";
-import OrderStatus from "./pages/orderstatus/OrderStatus";
+
+// Lazy load components
+const Menu = lazy(() => import("./pages/menu/Menu"));
+const HFpage = lazy(() => import("./pages/entrypage/HFpage"));
+const Orders = lazy(() => import("./pages/orderspage/Orders"));
+const OrderForm = lazy(() => import("./pages/orderform/OrderForm"));
+const OrderStatus = lazy(() => import("./pages/orderstatus/OrderStatus"));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HFpage />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <HFpage />
+      </Suspense>
+    ),
   },
   {
     path: "/menu",
-    element: <Menu />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Menu />
+      </Suspense>
+    ),
   },
   {
     path: "/orders",
-    element: <Orders />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <Orders />
+      </Suspense>
+    ),
   },
   {
     path: "/orderform",
-    element: <OrderForm />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <OrderForm />
+      </Suspense>
+    ),
   },
   {
     path: "/orders:status",
-    element: <OrderStatus />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderStatus />
+      </Suspense>
+    ),
   },
 ]);
 
