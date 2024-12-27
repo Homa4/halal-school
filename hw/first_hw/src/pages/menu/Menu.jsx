@@ -1,5 +1,5 @@
 import "./Menu.css";
-import useFetch from "../../customHooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import Dish from "./Dish";
 import OrdersBtn from "./OrdersBtn";
 import { useState, useEffect, useContext } from "react";
